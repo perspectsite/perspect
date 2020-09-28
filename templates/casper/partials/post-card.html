@@ -1,0 +1,58 @@
+{% for post_obj in posts %}
+    <article class="post-card post">
+
+    {% if post_obj.media %}
+
+        <a class="post-card-image-link" href="//{% if site.custom_domain %}{{ site.custom_domain }}{% else %}{{ site.domain }}{% endif %}/{{ post_obj.slug }}">
+            <img class="post-card-image"
+                loading="lazy"
+                src="//{{post_obj|getimage('medium') }}"
+                alt="{{ post_obj.title }}"
+            />
+        </a>
+
+    {% endif %}
+
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="//{% if site.custom_domain %}{{ site.custom_domain }}{% else %}{{ site.domain }}{% endif %}/{{ post_obj.slug }}">
+                <header class="post-card-header">
+                    {% if primary_tag %}
+                        <span class="post-card-tags">{{primary_tag.name}}</span>
+                    {% endif %}
+                    <h2 class="post-card-title">{{ post_obj.post_title }}</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    {% if post_obj.post_excerpt %}
+                        <p>{{ post_obj.post_excerpt|truncate(300, False, '...', 0) }}</p>
+                    {% else %}
+                        <p>{{ post_obj.post_content|truncate(300, False, '...', 0) }}</p>
+                    {% endif %}
+                </section>
+            </a>
+            <footer class="post-card-meta">
+
+                <ul class="author-list">
+                {% if authors %}
+                    {% for author in authors %}
+                        <li class="author-list-item">
+
+                            <div class="author-name-tooltip">
+                                {{name}}
+                            </div>
+
+                            {% if profile_image %}
+                                <a href="{{url}}" class="static-avatar"><img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" /></a>
+                            {% else %}
+                                <a href="{{url}}" class="static-avatar author-profile-image">{{ "icons/avatar" }}</a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                {% endif %}
+                </ul>
+
+                <span class="reading-time">{{ reading_time }}</span>
+
+            </footer>
+        </div>
+    </article>
+{% endfor %}

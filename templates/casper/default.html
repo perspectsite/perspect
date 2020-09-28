@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>{{ site.site_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/casper/static/built/screen.css" />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://wp.perspect.com/v1/{{site_name}}/xmlrpc.php?rsd" />
+
+</head>
+{% if posts %}
+    <body class="home-template">
+{% else %}  
+    <body class="post-template">
+{% endif %} 
+
+    {% block body %}
+
+    
+
+    
+
+    {% endblock %}
+
+</body>
+</html>

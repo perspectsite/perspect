@@ -1,0 +1,31 @@
+<nav class="site-nav">
+    <div class="site-nav-left">
+
+        {% if site.logo %}
+            <a class="site-nav-logo" href="//{% if site.custom_domain %}{{ site.custom_domain }}{% else %}{{ site.domain }}{% endif %}"><img src="{{ site.logo }}" alt="{{ site.title }}" /></a>
+        {% else %}
+            <a class="site-nav-logo" href="//{% if site.custom_domain %}{{ site.custom_domain }}{% else %}{{ site.domain }}{% endif %}">{{ site.title }}</a>
+        {% endif %}
+
+        <div class="site-nav-content">
+            <ul class="nav">
+                <li class="nav-home nav-current"><a href="/">Home</a></li>
+                <li class="nav-about"><a href="/about">About</a></li>
+                <!-- <li class="nav-contact"><a href="/contact">Contact</a></li> -->
+            </ul>
+            {% if post and post.post_title %}
+                <span class="nav-post-title">{{ post.post_title }}</span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            {% if site.facebook %}
+                <a class="social-link social-link-fb" href="{{ site.facebook }}" target="_blank" rel="noopener">{{ "icons/facebook"}}</a>
+            {% endif %}
+            {% if site.twitter %}
+                <a class="social-link social-link-tw" href="{{ site.twitter }}" target="_blank" rel="noopener">{{ "icons/twitter"}}</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block metadata %}
+	<meta property="og:title" content="{{ post.post_title }}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="//{{ post.link }}" />
+{% endblock %}
+
+{% block content %}
+<div class="post">
+	<h1 class="post-title">{{ post.post_title }}</h1>
+	<span class="post-date">{{ post.post_date|datetimeformat }}</span>
+	{{ post.post_content }}
+</div>
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% for post_obj in posts %}
+    <article class="post">
+        <div class="inner">
+            <header class="post-header">         
+                <h2 class="post-title"><a href="//{{ post_obj.link }}" rel="bookmark" title="Permalink to {{ post_obj.post_title }}">{{ post_obj.post_title }}</a>
+                </h2>
+                <span class="post-meta">
+                    {% for author in post_obj.authors %}
+                        <a href="//{{ site.custom_domain or site.domain }}">{{ author }}</a>
+                    {% endfor %}
+                    <time datetime="{{ post_obj.post_date|datetimeformat }}">{{ post_obj.post_date|datetimeformat }}</time>
+                </span>
+                <div class="clear"></div>
+            </header>
+                <section class="post-content">
+                {{ post_obj.post_content }}
+                </section>
+        </div>
+    </article>
+{% endfor %}
+

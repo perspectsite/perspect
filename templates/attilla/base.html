@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  {% if GOOGLE_SITE_VERIFICATION %}
+  <meta name="google-site-verification" content="{{ GOOGLE_SITE_VERIFICATION }}">
+  {% endif %}
+
+  <title>{% block title %}{{ site.site_title }}{% endblock title %}</title>
+
+  {% if SITE_DESCRIPTION %}
+  <meta name="description" content="{{ site.site_description }}" />
+  {% endif %}
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Perspect" />
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://wp.perspect.com/v1/{{ site.site_name }}/xmlrpc.php?rsd" />
+
+  <!-- Feed -->
+  <link rel="alternate" href="//{{ site.custom_domain or site.domain }}/feed/rss" type="application/rss+xml" title="{{ site.site_title }}  RSS Feed" />
+  <link href="/attilla/static/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+  {% if COLOR_SCHEME_CSS %}
+      <link href="/attilla/static/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
+  {% else %}
+      <link href="/attilla/static/css/code_blocks/github.css" rel="stylesheet">
+  {% endif %}
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  {% endblock head %}
+
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+
+  {% block header %}{% endblock header %}
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+      {% block content %}{% endblock content %}
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class="{{body_class}}"></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+          {% if SHOW_CREDITS|default(True) %}
+            {% if SHOW_CREDITS and SHOW_CREDITS.left %}
+              {% set left=SHOW_CREDITS.left %}
+            {% else %}
+              {% set left='Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a>' %}
+            {% endif %}
+
+            {% if SHOW_CREDITS and SHOW_CREDITS.right %}
+              {% set right=SHOW_CREDITS.right %}
+            {% else %}
+              {% set right='Published with <a href="https://www.perspect.com">Perspect</a>' %}
+            {% endif %}
+
+          <span class="credits-theme">{{left}}</span>
+          <span class="credits-software">{{right}}</span>
+          {% endif %}
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="/attilla/static/js/script.js"></script>
+
+</body>
+</html>
