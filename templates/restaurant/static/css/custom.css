@@ -1,0 +1,94 @@
+.nav-link h1 p small {
+  font-family: 'Potta One', cursive;
+  color: #19108f;
+  font-weight: bolder;
+}
+
+#navbarDropdown, #aboutMenu, #dropDownItems{ /* 100+1=101 priority score, yay! */
+  line-height: 1;
+  font-family: 'Potta One', cursive;
+  color: #19108f;
+  font-weight: 1000;
+  font-size:  40px;
+}
+
+.dropdown-menu a{
+    color: #19108f !important;
+}
+
+#bootstrap-overrides h1 { /* 100+1=101 priority score, yay! */
+    line-height: 1;
+    font-family: 'Potta One', cursive;
+    color: #19108f;
+  }
+
+.bg-light .navbar-custom .navbar-light .navbar-nav .nav-link {
+
+    font-family: 'Potta One', cursive;
+    color: #19108f;
+    font-size:  20px;
+    font-weight: bolder;
+
+}
+
+.container {
+    font-family: 'Potta One', cursive;
+    color: #19108f;
+    font-size: xx-large;
+    font-weight: 1000;
+  
+  }
+
+div[id^='menu'] h1 {
+  font-size: 100px;
+  font-weight: 1000;
+}
+
+div[id^='menu'] h2 {
+  font-size: 60px;
+  font-weight: 1000;
+  
+}
+
+div[id^='menu'] h3 {
+  font-size: 45px;
+  font-weight: 1000;
+}
+
+div[id^='menu'] p {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+
+.border {
+  border-width:3px !important;
+  color: #19108f;
+}
+
+.feather {
+  width: 24px;
+  height: 45px;
+  stroke: #19108f;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+
+.carousel {
+  width: 800px;
+  height: 450px;
+}
+
+/* .carousel-item {
+  width: 50%;
+  height: 300px; 
+} */
+
+/* .carousel-item img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+} */
