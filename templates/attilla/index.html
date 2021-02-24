@@ -4,9 +4,9 @@
     {{ super() }}
 <link href="//{{ site.custom_domain or site.domain }}" rel="canonical" />
 
-{% if site.description %}
+{% if site.site_description %}
     <meta name="Description" content="{{ site.site_description }}">
-{% elif site.title %}
+{% elif site.site_title %}
     <meta name="Description" content="{{ site.site_title }}">
 {% else %}
     <meta name="Description" content="A lovely website full of interest and intrigue.">
