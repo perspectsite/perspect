@@ -1,0 +1,55 @@
+<nav class="navbar page-background navbar-custom navbar-expand-lg navbar-light bg-light">
+        {% if site.site_logo %}
+          <a class="navbar-brand" href="/">
+              <img src="//{{ site.site_logo }}" width="308" height="160" class="d-inline-block align-top" alt="">
+          </a>
+        {% else%}
+          <a class="navbar-brand" href="/">
+            <img src="/{{ site.active_template }}/static/images/logo.png" width="308" height="160" class="d-inline-block align-top" alt="">
+          </a>
+        {% endif %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-custom navbar-light navbar-nav nav-link navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            {% for page in posts %}
+              {% if page.post_type == "page" %}
+                <li class="nav-item">
+                  <a class="nav-link" href="//{{ page.link }}">{{ page.post_title}} <span class="sr-only"></span></a>
+                </li>
+              {% endif %}
+            {% endfor %}
+            <li class="nav-item page-background dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menus
+                </a>
+                <div class="dropdown-menu" id="dropDownItems" aria-labelledby="navbarDropdown">
+                    {% for m in menus %}
+                      <a class="dropdown-item navbar-custom navbar-light navbar-nav nav-link" href="/menu/{{ m.slug }}">{{ m.menu_type }}</a>
+                    {% endfor %}
+                        
+                    {% if menus|length == 0%}
+                      <a class="dropdown-item navbar-custom navbar-light navbar-nav nav-link" href="https://app.perspect.com/{{ site.site_name }}/menu">Create a Menu</a>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" id="facebook" href="https://www.facebook.com"><i data-feather="facebook"></i></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" id="instagram" href="https://instagram.com"><i data-feather="instagram"></i></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" id="email" href="mailto:hello@example.com"><i data-feather="mail"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <script>
+        feather.replace()
+      </script>
+
+
+    
