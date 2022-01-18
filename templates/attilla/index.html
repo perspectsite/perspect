@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+<link href="//{{ site.custom_domain or site.domain }}" rel="canonical" />
+
+{% if site.site_description %}
+    <meta name="Description" content="{{ site.site_description }}">
+{% elif site.site_title %}
+    <meta name="Description" content="{{ site.site_title }}">
+{% else %}
+    <meta name="Description" content="A lovely website full of interest and intrigue.">
+{% endif %}
+
+{% endblock %}
+
+{% if HEADER_COVER %}
+  {% if HEADER_COVER|lower|truncate(4, True, '') == "http" %}
+    {% set selected_cover = HEADER_COVER %}
+  {% else %}
+    {% set selected_cover = site.custom_domain or site.domain +"/"+HEADER_COVER %}
+  {% endif %}
+{% elif HEADER_COLOR %}
+  {% set selected_color = HEADER_COLOR %}
+{% endif %}
+
+{% block header %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="blog-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+          {% if SITE_LOGO %}
+          <span class="blog-logo">
+            <a href="//{{ site.custom_domain or site.domain }}"><img src="" alt="Blog Logo" /></a>
+          </span>
+          {% endif %}
+
+        </nav>
+        <h1 class="blog-name"><a href="//{{ site.custom_domain or site.domain }}">{{ site.site_title }}</a></h1>
+        {% if SITESUBTITLE %}
+        <span class="blog-description">{{ SITESUBTITLE }}</span>
+        {% endif %}
+
+        {% if selected_cover %}
+          <div class="blog-cover cover" style="background-image: url('{{ selected_cover }}')">
+        {% elif selected_color %}
+          <div class="blog-cover cover" style="background-color: {{ selected_color }}">
+        {% else %}
+          <div class="blog-cover cover" style="background-image: url('//{{ site.custom_domain or site.domain }}/attilla/static/images/post-bg.jpg')">
+        {% endif %}
+      </div>
+    </header>
+
+{% endblock header %}
+
+{% block content %}
+
+<div id="index" class="container">
+  <main class="content" role="main">
+    {% include "partials/loop.html" %}
+  </main>
+</div>
+{% endblock content %}
